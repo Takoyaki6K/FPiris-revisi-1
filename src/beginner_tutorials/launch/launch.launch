@@ -1,0 +1,7 @@
+<launch>
+    <node name="kamera" pkg="beginner_tutorials" type="kamera" output="screen" respawn="true"/> 
+    <node name="pc" pkg="beginner_tutorials" type="pc"  output="screen" respawn="true"/> 
+    <node name="motor" pkg="beginner_tutorials" type="motor"  output="screen" respawn="true"/> 
+    <!-- <node name="panjang" pkg="beginner_tutorials" type="panjang"  output="screen" respawn="true"/>
+    <node name="volume" pkg="beginner_tutorials" type="volume"  output="screen" respawn="true"/>   -->
+</launch>
