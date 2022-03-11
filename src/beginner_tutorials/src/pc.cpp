@@ -69,8 +69,8 @@ class data_dari_kamera{
     kecepatanY.data = 9;
     kecepatanTheta.data = 6;
 
-    ROS_INFO("data titik x = %d; titik Y = %d ;target sudut = %d ", titikX.data, titikY.data, target.data);
-    ROS_INFO("kecepatan X = %d ;kecepatan Y = %d ; kecepatan theta =%d", kecepatanX.data, kecepatanY.data, kecepatanTheta.data );
+    // ROS_INFO("data titik x = %d; titik Y = %d ;target sudut = %d ", titikX.data, titikY.data, target.data);
+    // ROS_INFO("kecepatan X = %d ;kecepatan Y = %d ; kecepatan theta =%d", kecepatanX.data, kecepatanY.data, kecepatanTheta.data );
     center_bola_x.publish(titikX);
     center_bola_y.publish(titikY);
     target_sudut.publish(target);
@@ -79,6 +79,8 @@ class data_dari_kamera{
     kecepatan_theta.publish(kecepatanTheta);
 
   };
+
+ 
 };
 
 data_dari_kamera data;

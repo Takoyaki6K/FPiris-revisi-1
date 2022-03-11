@@ -1,0 +1,2 @@
+set(Kamera_MESSAGE_FILES "msg/Num.msg")
+set(Kamera_SERVICE_FILES "srv/AddTwoInts.srv")

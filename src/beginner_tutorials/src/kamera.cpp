@@ -66,7 +66,7 @@ class classOpenCV{
     void pub_data_x_y(int x, int y){
         ros::NodeHandle n;
         
-        centerX = n.advertise<std_msgs::Float32>("centerX", 1000);
+        centerX = n.advertise<std_msgs::Float32>("centerX", 1000); 
         centerY = n.advertise<std_msgs::Float32>("centerY", 1000);
 
         xTitik.data = y;
@@ -75,7 +75,7 @@ class classOpenCV{
 
         while(ros::ok()){
         
-        ROS_INFO("data kamera = %2f = %2f  ", xTitik.data, yTitik.data);
+        // ROS_INFO("data kamera = %2f = %2f  ", xTitik.data, yTitik.data);
                     
         centerX.publish(xTitik);
         centerY.publish(yTitik);

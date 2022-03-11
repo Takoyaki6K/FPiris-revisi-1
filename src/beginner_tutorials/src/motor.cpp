@@ -15,7 +15,7 @@ ros::Subscriber kecepatan_theta;
 
 class data_dari_pc{
     private:
-    int x, y, sudut, speedX, speedY, speedTheta, awalX = 0 , awalY = 0, awalSpeedTheta = 0;
+    int x, y, sudut, speedX, speedY, speedTheta, awalX = 0 , awalY = 0, awalTheta = 0;
 
     public:
 
@@ -27,13 +27,25 @@ class data_dari_pc{
     void setspeedTheta(int _speedTheta){speedTheta = _speedTheta;}
 
     void takeAll(){
-        ros::Rate loop_rate(2);
 
         // int tempX ,tempY ;
+        ros::Rate loop_rate(1);
         while(ros::ok()){
-        ROS_INFO ("posisi sekarang berada di x = %d ; y= %d ", awalX, awalY);
+        // ROS_INFO ("posisi sekarang berada di x = %d ; y= %d ", awalX, awalY);
+        printf("==========================================\n");
+        printf("posisi X = %d \n", awalX);
+        printf("posisi Y = %d \n", awalY);
+        printf("Sudut    = %d \n", awalTheta);
+        printf("==========================================\n");
+
         awalX += speedX;
-        awalY += speedY;   
+        awalY += speedY;
+        awalTheta += speedTheta;
+        if(awalTheta > 180){
+            awalTheta = -179;
+        }else if(awalTheta < -180){
+            awalTheta = 179;
+        }
         if (awalX > x){    
             awalX = x;
         }
@@ -44,12 +56,10 @@ class data_dari_pc{
         //     ros::shutdown();
         // }
 
-
+        ros::spinOnce();
+        loop_rate.sleep();
           
 
-        ros::spinOnce();
-
-        loop_rate.sleep();
         }
         
     }
