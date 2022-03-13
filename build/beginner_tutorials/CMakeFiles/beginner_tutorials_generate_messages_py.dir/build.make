@@ -53,36 +53,45 @@ CMAKE_BINARY_DIR = /home/raihanramadan/catkin_ws/build
 # Include the progress variables for this target.
 include beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py.dir/progress.make
 
-beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py
+beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py
+beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py
 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py
 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py
 
 
-/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py: /home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/Num.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG beginner_tutorials/Num"
-	cd /home/raihanramadan/catkin_ws/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/Num.msg -Ibeginner_tutorials:/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p beginner_tutorials -o /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py: /home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/TitikTengahBola.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG beginner_tutorials/TitikTengahBola"
+	cd /home/raihanramadan/catkin_ws/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/TitikTengahBola.msg -Ibeginner_tutorials:/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p beginner_tutorials -o /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg
+
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py: /home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/DataPckeMotor.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG beginner_tutorials/DataPckeMotor"
+	cd /home/raihanramadan/catkin_ws/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/DataPckeMotor.msg -Ibeginner_tutorials:/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p beginner_tutorials -o /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg
 
 /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
 /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py: /home/raihanramadan/catkin_ws/src/beginner_tutorials/srv/AddTwoInts.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV beginner_tutorials/AddTwoInts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV beginner_tutorials/AddTwoInts"
 	cd /home/raihanramadan/catkin_ws/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/raihanramadan/catkin_ws/src/beginner_tutorials/srv/AddTwoInts.srv -Ibeginner_tutorials:/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p beginner_tutorials -o /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv
 
 /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py
 /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for beginner_tutorials"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for beginner_tutorials"
 	cd /home/raihanramadan/catkin_ws/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg --initpy
 
 /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py
+/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py
 /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for beginner_tutorials"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/raihanramadan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for beginner_tutorials"
 	cd /home/raihanramadan/catkin_ws/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv --initpy
 
 beginner_tutorials_generate_messages_py: beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py
-beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py
+beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py
+beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py
 beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
 beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py
 beginner_tutorials_generate_messages_py: /home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py

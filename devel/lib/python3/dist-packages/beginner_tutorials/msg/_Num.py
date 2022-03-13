@@ -8,18 +8,14 @@ import struct
 
 
 class Num(genpy.Message):
-  _md5sum = "4548963ba192530e53c429a3cfe7d8bd"
+  _md5sum = "11a52276c7f1046a3434c96c7efb5602"
   _type = "beginner_tutorials/Num"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """string first_name
-string last_name
-uint8 data_int8
-uint32 data_int32
-uint16 data_int16
-float32 data_float32
+  _full_text = """int8 centerX
+int8 centerY
 """
-  __slots__ = ['first_name','last_name','data_int8','data_int32','data_int16','data_float32']
-  _slot_types = ['string','string','uint8','uint32','uint16','float32']
+  __slots__ = ['centerX','centerY']
+  _slot_types = ['int8','int8']
 
   def __init__(self, *args, **kwds):
     """
@@ -29,7 +25,7 @@ float32 data_float32
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       first_name,last_name,data_int8,data_int32,data_int16,data_float32
+       centerX,centerY
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -38,25 +34,13 @@ float32 data_float32
     if args or kwds:
       super(Num, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.first_name is None:
-        self.first_name = ''
-      if self.last_name is None:
-        self.last_name = ''
-      if self.data_int8 is None:
-        self.data_int8 = 0
-      if self.data_int32 is None:
-        self.data_int32 = 0
-      if self.data_int16 is None:
-        self.data_int16 = 0
-      if self.data_float32 is None:
-        self.data_float32 = 0.
+      if self.centerX is None:
+        self.centerX = 0
+      if self.centerY is None:
+        self.centerY = 0
     else:
-      self.first_name = ''
-      self.last_name = ''
-      self.data_int8 = 0
-      self.data_int32 = 0
-      self.data_int16 = 0
-      self.data_float32 = 0.
+      self.centerX = 0
+      self.centerY = 0
 
   def _get_types(self):
     """
@@ -70,20 +54,8 @@ float32 data_float32
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.first_name
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self.last_name
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_BIHf().pack(_x.data_int8, _x.data_int32, _x.data_int16, _x.data_float32))
+      buff.write(_get_struct_2b().pack(_x.centerX, _x.centerY))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -96,28 +68,10 @@ float32 data_float32
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.first_name = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.first_name = str[start:end]
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.last_name = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.last_name = str[start:end]
       _x = self
       start = end
-      end += 11
-      (_x.data_int8, _x.data_int32, _x.data_int16, _x.data_float32,) = _get_struct_BIHf().unpack(str[start:end])
+      end += 2
+      (_x.centerX, _x.centerY,) = _get_struct_2b().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -130,20 +84,8 @@ float32 data_float32
     :param numpy: numpy python module
     """
     try:
-      _x = self.first_name
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self.last_name
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_BIHf().pack(_x.data_int8, _x.data_int32, _x.data_int16, _x.data_float32))
+      buff.write(_get_struct_2b().pack(_x.centerX, _x.centerY))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -157,28 +99,10 @@ float32 data_float32
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.first_name = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.first_name = str[start:end]
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.last_name = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.last_name = str[start:end]
       _x = self
       start = end
-      end += 11
-      (_x.data_int8, _x.data_int32, _x.data_int16, _x.data_float32,) = _get_struct_BIHf().unpack(str[start:end])
+      end += 2
+      (_x.centerX, _x.centerY,) = _get_struct_2b().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -187,9 +111,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_BIHf = None
-def _get_struct_BIHf():
-    global _struct_BIHf
-    if _struct_BIHf is None:
-        _struct_BIHf = struct.Struct("<BIHf")
-    return _struct_BIHf
+_struct_2b = None
+def _get_struct_2b():
+    global _struct_2b
+    if _struct_2b is None:
+        _struct_2b = struct.Struct("<2b")
+    return _struct_2b

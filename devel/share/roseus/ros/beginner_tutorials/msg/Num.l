@@ -14,110 +14,64 @@
 
 (defclass beginner_tutorials::Num
   :super ros::object
-  :slots (_first_name _last_name _data_int8 _data_int32 _data_int16 _data_float32 ))
+  :slots (_centerX _centerY ))
 
 (defmethod beginner_tutorials::Num
   (:init
    (&key
-    ((:first_name __first_name) "")
-    ((:last_name __last_name) "")
-    ((:data_int8 __data_int8) 0)
-    ((:data_int32 __data_int32) 0)
-    ((:data_int16 __data_int16) 0)
-    ((:data_float32 __data_float32) 0.0)
+    ((:centerX __centerX) 0)
+    ((:centerY __centerY) 0)
     )
    (send-super :init)
-   (setq _first_name (string __first_name))
-   (setq _last_name (string __last_name))
-   (setq _data_int8 (round __data_int8))
-   (setq _data_int32 (round __data_int32))
-   (setq _data_int16 (round __data_int16))
-   (setq _data_float32 (float __data_float32))
+   (setq _centerX (round __centerX))
+   (setq _centerY (round __centerY))
    self)
-  (:first_name
-   (&optional __first_name)
-   (if __first_name (setq _first_name __first_name)) _first_name)
-  (:last_name
-   (&optional __last_name)
-   (if __last_name (setq _last_name __last_name)) _last_name)
-  (:data_int8
-   (&optional __data_int8)
-   (if __data_int8 (setq _data_int8 __data_int8)) _data_int8)
-  (:data_int32
-   (&optional __data_int32)
-   (if __data_int32 (setq _data_int32 __data_int32)) _data_int32)
-  (:data_int16
-   (&optional __data_int16)
-   (if __data_int16 (setq _data_int16 __data_int16)) _data_int16)
-  (:data_float32
-   (&optional __data_float32)
-   (if __data_float32 (setq _data_float32 __data_float32)) _data_float32)
+  (:centerX
+   (&optional __centerX)
+   (if __centerX (setq _centerX __centerX)) _centerX)
+  (:centerY
+   (&optional __centerY)
+   (if __centerY (setq _centerY __centerY)) _centerY)
   (:serialization-length
    ()
    (+
-    ;; string _first_name
-    4 (length _first_name)
-    ;; string _last_name
-    4 (length _last_name)
-    ;; uint8 _data_int8
+    ;; int8 _centerX
     1
-    ;; uint32 _data_int32
-    4
-    ;; uint16 _data_int16
-    2
-    ;; float32 _data_float32
-    4
+    ;; int8 _centerY
+    1
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; string _first_name
-       (write-long (length _first_name) s) (princ _first_name s)
-     ;; string _last_name
-       (write-long (length _last_name) s) (princ _last_name s)
-     ;; uint8 _data_int8
-       (write-byte _data_int8 s)
-     ;; uint32 _data_int32
-       (write-long _data_int32 s)
-     ;; uint16 _data_int16
-       (write-word _data_int16 s)
-     ;; float32 _data_float32
-       (sys::poke _data_float32 (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; int8 _centerX
+       (write-byte _centerX s)
+     ;; int8 _centerY
+       (write-byte _centerY s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; string _first_name
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _first_name (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
-   ;; string _last_name
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _last_name (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
-   ;; uint8 _data_int8
-     (setq _data_int8 (sys::peek buf ptr- :char)) (incf ptr- 1)
-   ;; uint32 _data_int32
-     (setq _data_int32 (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; uint16 _data_int16
-     (setq _data_int16 (sys::peek buf ptr- :short)) (incf ptr- 2)
-   ;; float32 _data_float32
-     (setq _data_float32 (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; int8 _centerX
+     (setq _centerX (sys::peek buf ptr- :char)) (incf ptr- 1)
+     (if (> _centerX 127) (setq _centerX (- _centerX 256)))
+   ;; int8 _centerY
+     (setq _centerY (sys::peek buf ptr- :char)) (incf ptr- 1)
+     (if (> _centerY 127) (setq _centerY (- _centerY 256)))
    ;;
    self)
   )
 
-(setf (get beginner_tutorials::Num :md5sum-) "4548963ba192530e53c429a3cfe7d8bd")
+(setf (get beginner_tutorials::Num :md5sum-) "11a52276c7f1046a3434c96c7efb5602")
 (setf (get beginner_tutorials::Num :datatype-) "beginner_tutorials/Num")
 (setf (get beginner_tutorials::Num :definition-)
-      "string first_name
-string last_name
-uint8 data_int8
-uint32 data_int32
-uint16 data_int16
-float32 data_float32
+      "int8 centerX
+int8 centerY
 
 ")
 
 
 
-(provide :beginner_tutorials/Num "4548963ba192530e53c429a3cfe7d8bd")
+(provide :beginner_tutorials/Num "11a52276c7f1046a3434c96c7efb5602")
 
 

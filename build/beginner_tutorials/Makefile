@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/raihanramadan/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -134,6 +122,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -256,6 +256,21 @@ beginner_tutorials_geneus: beginner_tutorials/CMakeFiles/beginner_tutorials_gene
 beginner_tutorials_geneus/fast:
 	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/beginner_tutorials_geneus.dir/build.make beginner_tutorials/CMakeFiles/beginner_tutorials_geneus.dir/build
 .PHONY : beginner_tutorials_geneus/fast
+
+# Convenience name for target.
+beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule
+.PHONY : beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+beginner_tutorials_generate_messages_cpp: beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule
+
+.PHONY : beginner_tutorials_generate_messages_cpp
+
+# fast build rule for target.
+beginner_tutorials_generate_messages_cpp/fast:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/build.make beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/build
+.PHONY : beginner_tutorials_generate_messages_cpp/fast
 
 # Convenience name for target.
 beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
@@ -408,21 +423,6 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule
-.PHONY : beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-beginner_tutorials_generate_messages_cpp: beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/rule
-
-.PHONY : beginner_tutorials_generate_messages_cpp
-
-# fast build rule for target.
-beginner_tutorials_generate_messages_cpp/fast:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/build.make beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_cpp.dir/build
-.PHONY : beginner_tutorials_generate_messages_cpp/fast
-
-# Convenience name for target.
 beginner_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
 	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : beginner_tutorials/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
@@ -541,21 +541,6 @@ std_msgs_generate_messages_lisp: beginner_tutorials/CMakeFiles/std_msgs_generate
 std_msgs_generate_messages_lisp/fast:
 	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make beginner_tutorials/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 beginner_tutorials/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
@@ -678,6 +663,36 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+beginner_tutorials/CMakeFiles/kamera.dir/rule:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/kamera.dir/rule
+.PHONY : beginner_tutorials/CMakeFiles/kamera.dir/rule
+
+# Convenience name for target.
+kamera: beginner_tutorials/CMakeFiles/kamera.dir/rule
+
+.PHONY : kamera
+
+# fast build rule for target.
+kamera/fast:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/kamera.dir/build.make beginner_tutorials/CMakeFiles/kamera.dir/build
+.PHONY : kamera/fast
+
+# Convenience name for target.
+beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/build.make beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+# Convenience name for target.
 beginner_tutorials/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
 	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 .PHONY : beginner_tutorials/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
@@ -723,49 +738,34 @@ geometry_msgs_generate_messages_eus/fast:
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-beginner_tutorials/CMakeFiles/kamera.dir/rule:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/kamera.dir/rule
-.PHONY : beginner_tutorials/CMakeFiles/kamera.dir/rule
+beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-kamera: beginner_tutorials/CMakeFiles/kamera.dir/rule
+rosgraph_msgs_generate_messages_nodejs: beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : kamera
+.PHONY : rosgraph_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-kamera/fast:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/kamera.dir/build.make beginner_tutorials/CMakeFiles/kamera.dir/build
-.PHONY : kamera/fast
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make beginner_tutorials/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_TitikTengahBola.dir/rule:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_TitikTengahBola.dir/rule
+.PHONY : beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_TitikTengahBola.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_py: beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+_beginner_tutorials_generate_messages_check_deps_TitikTengahBola: beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_TitikTengahBola.dir/rule
 
-.PHONY : std_msgs_generate_messages_py
+.PHONY : _beginner_tutorials_generate_messages_check_deps_TitikTengahBola
 
 # fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/build.make beginner_tutorials/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_Num.dir/rule:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_Num.dir/rule
-.PHONY : beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_Num.dir/rule
-
-# Convenience name for target.
-_beginner_tutorials_generate_messages_check_deps_Num: beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_Num.dir/rule
-
-.PHONY : _beginner_tutorials_generate_messages_check_deps_Num
-
-# fast build rule for target.
-_beginner_tutorials_generate_messages_check_deps_Num/fast:
-	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_Num.dir/build.make beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_Num.dir/build
-.PHONY : _beginner_tutorials_generate_messages_check_deps_Num/fast
+_beginner_tutorials_generate_messages_check_deps_TitikTengahBola/fast:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_TitikTengahBola.dir/build.make beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_TitikTengahBola.dir/build
+.PHONY : _beginner_tutorials_generate_messages_check_deps_TitikTengahBola/fast
 
 # Convenience name for target.
 beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_AddTwoInts.dir/rule:
@@ -781,6 +781,21 @@ _beginner_tutorials_generate_messages_check_deps_AddTwoInts: beginner_tutorials/
 _beginner_tutorials_generate_messages_check_deps_AddTwoInts/fast:
 	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_AddTwoInts.dir/build.make beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_AddTwoInts.dir/build
 .PHONY : _beginner_tutorials_generate_messages_check_deps_AddTwoInts/fast
+
+# Convenience name for target.
+beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_DataPckeMotor.dir/rule:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_DataPckeMotor.dir/rule
+.PHONY : beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_DataPckeMotor.dir/rule
+
+# Convenience name for target.
+_beginner_tutorials_generate_messages_check_deps_DataPckeMotor: beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_DataPckeMotor.dir/rule
+
+.PHONY : _beginner_tutorials_generate_messages_check_deps_DataPckeMotor
+
+# fast build rule for target.
+_beginner_tutorials_generate_messages_check_deps_DataPckeMotor/fast:
+	cd /home/raihanramadan/catkin_ws/build && $(MAKE) -f beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_DataPckeMotor.dir/build.make beginner_tutorials/CMakeFiles/_beginner_tutorials_generate_messages_check_deps_DataPckeMotor.dir/build
+.PHONY : _beginner_tutorials_generate_messages_check_deps_DataPckeMotor/fast
 
 src/kamera.o: src/kamera.cpp.o
 
@@ -869,7 +884,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
@@ -879,6 +893,7 @@ help:
 	@echo "... beginner_tutorials_gennodejs"
 	@echo "... beginner_tutorials_generate_messages_nodejs"
 	@echo "... beginner_tutorials_geneus"
+	@echo "... beginner_tutorials_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... beginner_tutorials_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
@@ -890,7 +905,6 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... install/local"
 	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... beginner_tutorials_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... test"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
@@ -900,7 +914,6 @@ help:
 	@echo "... roscpp_generate_messages_py"
 	@echo "... beginner_tutorials_generate_messages"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_eus"
@@ -910,13 +923,16 @@ help:
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... kamera"
+	@echo "... std_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... kamera"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... _beginner_tutorials_generate_messages_check_deps_Num"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... _beginner_tutorials_generate_messages_check_deps_TitikTengahBola"
 	@echo "... _beginner_tutorials_generate_messages_check_deps_AddTwoInts"
+	@echo "... install/strip"
+	@echo "... _beginner_tutorials_generate_messages_check_deps_DataPckeMotor"
 	@echo "... src/kamera.o"
 	@echo "... src/kamera.i"
 	@echo "... src/kamera.s"

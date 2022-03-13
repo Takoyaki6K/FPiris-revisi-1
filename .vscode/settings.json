@@ -11,6 +11,7 @@
         "list": "cpp",
         "vector": "cpp",
         "valarray": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "ratio": "cpp"
     }
 }

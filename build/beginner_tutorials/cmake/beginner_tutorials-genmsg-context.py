@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/Num.msg"
+messages_str = "/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/TitikTengahBola.msg;/home/raihanramadan/catkin_ws/src/beginner_tutorials/msg/DataPckeMotor.msg"
 services_str = "/home/raihanramadan/catkin_ws/src/beginner_tutorials/srv/AddTwoInts.srv"
 pkg_name = "beginner_tutorials"
 dependencies_str = "std_msgs"

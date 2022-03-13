@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_Num.py"
+  "/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_DataPckeMotor.py"
+  "/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/_TitikTengahBola.py"
   "/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/msg/__init__.py"
   "/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/_AddTwoInts.py"
   "/home/raihanramadan/catkin_ws/devel/lib/python3/dist-packages/beginner_tutorials/srv/__init__.py"

@@ -18,67 +18,31 @@ class Num {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.first_name = null;
-      this.last_name = null;
-      this.data_int8 = null;
-      this.data_int32 = null;
-      this.data_int16 = null;
-      this.data_float32 = null;
+      this.centerX = null;
+      this.centerY = null;
     }
     else {
-      if (initObj.hasOwnProperty('first_name')) {
-        this.first_name = initObj.first_name
+      if (initObj.hasOwnProperty('centerX')) {
+        this.centerX = initObj.centerX
       }
       else {
-        this.first_name = '';
+        this.centerX = 0;
       }
-      if (initObj.hasOwnProperty('last_name')) {
-        this.last_name = initObj.last_name
-      }
-      else {
-        this.last_name = '';
-      }
-      if (initObj.hasOwnProperty('data_int8')) {
-        this.data_int8 = initObj.data_int8
+      if (initObj.hasOwnProperty('centerY')) {
+        this.centerY = initObj.centerY
       }
       else {
-        this.data_int8 = 0;
-      }
-      if (initObj.hasOwnProperty('data_int32')) {
-        this.data_int32 = initObj.data_int32
-      }
-      else {
-        this.data_int32 = 0;
-      }
-      if (initObj.hasOwnProperty('data_int16')) {
-        this.data_int16 = initObj.data_int16
-      }
-      else {
-        this.data_int16 = 0;
-      }
-      if (initObj.hasOwnProperty('data_float32')) {
-        this.data_float32 = initObj.data_float32
-      }
-      else {
-        this.data_float32 = 0.0;
+        this.centerY = 0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Num
-    // Serialize message field [first_name]
-    bufferOffset = _serializer.string(obj.first_name, buffer, bufferOffset);
-    // Serialize message field [last_name]
-    bufferOffset = _serializer.string(obj.last_name, buffer, bufferOffset);
-    // Serialize message field [data_int8]
-    bufferOffset = _serializer.uint8(obj.data_int8, buffer, bufferOffset);
-    // Serialize message field [data_int32]
-    bufferOffset = _serializer.uint32(obj.data_int32, buffer, bufferOffset);
-    // Serialize message field [data_int16]
-    bufferOffset = _serializer.uint16(obj.data_int16, buffer, bufferOffset);
-    // Serialize message field [data_float32]
-    bufferOffset = _serializer.float32(obj.data_float32, buffer, bufferOffset);
+    // Serialize message field [centerX]
+    bufferOffset = _serializer.int8(obj.centerX, buffer, bufferOffset);
+    // Serialize message field [centerY]
+    bufferOffset = _serializer.int8(obj.centerY, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -86,26 +50,15 @@ class Num {
     //deserializes a message object of type Num
     let len;
     let data = new Num(null);
-    // Deserialize message field [first_name]
-    data.first_name = _deserializer.string(buffer, bufferOffset);
-    // Deserialize message field [last_name]
-    data.last_name = _deserializer.string(buffer, bufferOffset);
-    // Deserialize message field [data_int8]
-    data.data_int8 = _deserializer.uint8(buffer, bufferOffset);
-    // Deserialize message field [data_int32]
-    data.data_int32 = _deserializer.uint32(buffer, bufferOffset);
-    // Deserialize message field [data_int16]
-    data.data_int16 = _deserializer.uint16(buffer, bufferOffset);
-    // Deserialize message field [data_float32]
-    data.data_float32 = _deserializer.float32(buffer, bufferOffset);
+    // Deserialize message field [centerX]
+    data.centerX = _deserializer.int8(buffer, bufferOffset);
+    // Deserialize message field [centerY]
+    data.centerY = _deserializer.int8(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    let length = 0;
-    length += _getByteLength(object.first_name);
-    length += _getByteLength(object.last_name);
-    return length + 19;
+    return 2;
   }
 
   static datatype() {
@@ -115,18 +68,14 @@ class Num {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '4548963ba192530e53c429a3cfe7d8bd';
+    return '11a52276c7f1046a3434c96c7efb5602';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    string first_name
-    string last_name
-    uint8 data_int8
-    uint32 data_int32
-    uint16 data_int16
-    float32 data_float32
+    int8 centerX
+    int8 centerY
     
     `;
   }
@@ -137,46 +86,18 @@ class Num {
       msg = {};
     }
     const resolved = new Num(null);
-    if (msg.first_name !== undefined) {
-      resolved.first_name = msg.first_name;
+    if (msg.centerX !== undefined) {
+      resolved.centerX = msg.centerX;
     }
     else {
-      resolved.first_name = ''
+      resolved.centerX = 0
     }
 
-    if (msg.last_name !== undefined) {
-      resolved.last_name = msg.last_name;
+    if (msg.centerY !== undefined) {
+      resolved.centerY = msg.centerY;
     }
     else {
-      resolved.last_name = ''
-    }
-
-    if (msg.data_int8 !== undefined) {
-      resolved.data_int8 = msg.data_int8;
-    }
-    else {
-      resolved.data_int8 = 0
-    }
-
-    if (msg.data_int32 !== undefined) {
-      resolved.data_int32 = msg.data_int32;
-    }
-    else {
-      resolved.data_int32 = 0
-    }
-
-    if (msg.data_int16 !== undefined) {
-      resolved.data_int16 = msg.data_int16;
-    }
-    else {
-      resolved.data_int16 = 0
-    }
-
-    if (msg.data_float32 !== undefined) {
-      resolved.data_float32 = msg.data_float32;
-    }
-    else {
-      resolved.data_float32 = 0.0
+      resolved.centerY = 0
     }
 
     return resolved;

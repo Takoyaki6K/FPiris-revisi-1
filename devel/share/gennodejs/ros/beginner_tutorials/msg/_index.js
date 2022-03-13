@@ -1,8 +1,10 @@
 
 "use strict";
 
-let Num = require('./Num.js');
+let DataPckeMotor = require('./DataPckeMotor.js');
+let TitikTengahBola = require('./TitikTengahBola.js');
 
 module.exports = {
-  Num: Num,
+  DataPckeMotor: DataPckeMotor,
+  TitikTengahBola: TitikTengahBola,
 };

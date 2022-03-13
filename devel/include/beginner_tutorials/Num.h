@@ -24,42 +24,22 @@ struct Num_
   typedef Num_<ContainerAllocator> Type;
 
   Num_()
-    : first_name()
-    , last_name()
-    , data_int8(0)
-    , data_int32(0)
-    , data_int16(0)
-    , data_float32(0.0)  {
+    : centerX(0)
+    , centerY(0)  {
     }
   Num_(const ContainerAllocator& _alloc)
-    : first_name(_alloc)
-    , last_name(_alloc)
-    , data_int8(0)
-    , data_int32(0)
-    , data_int16(0)
-    , data_float32(0.0)  {
+    : centerX(0)
+    , centerY(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _first_name_type;
-  _first_name_type first_name;
+   typedef int8_t _centerX_type;
+  _centerX_type centerX;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _last_name_type;
-  _last_name_type last_name;
-
-   typedef uint8_t _data_int8_type;
-  _data_int8_type data_int8;
-
-   typedef uint32_t _data_int32_type;
-  _data_int32_type data_int32;
-
-   typedef uint16_t _data_int16_type;
-  _data_int16_type data_int16;
-
-   typedef float _data_float32_type;
-  _data_float32_type data_float32;
+   typedef int8_t _centerY_type;
+  _centerY_type centerY;
 
 
 
@@ -90,12 +70,8 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::beginner_tutorials::Num_<ContainerAllocator1> & lhs, const ::beginner_tutorials::Num_<ContainerAllocator2> & rhs)
 {
-  return lhs.first_name == rhs.first_name &&
-    lhs.last_name == rhs.last_name &&
-    lhs.data_int8 == rhs.data_int8 &&
-    lhs.data_int32 == rhs.data_int32 &&
-    lhs.data_int16 == rhs.data_int16 &&
-    lhs.data_float32 == rhs.data_float32;
+  return lhs.centerX == rhs.centerX &&
+    lhs.centerY == rhs.centerY;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -128,12 +104,12 @@ struct IsMessage< ::beginner_tutorials::Num_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::beginner_tutorials::Num_<ContainerAllocator> >
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::beginner_tutorials::Num_<ContainerAllocator> const>
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
@@ -152,12 +128,12 @@ struct MD5Sum< ::beginner_tutorials::Num_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "4548963ba192530e53c429a3cfe7d8bd";
+    return "11a52276c7f1046a3434c96c7efb5602";
   }
 
   static const char* value(const ::beginner_tutorials::Num_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x4548963ba192530eULL;
-  static const uint64_t static_value2 = 0x53c429a3cfe7d8bdULL;
+  static const uint64_t static_value1 = 0x11a52276c7f1046aULL;
+  static const uint64_t static_value2 = 0x3434c96c7efb5602ULL;
 };
 
 template<class ContainerAllocator>
@@ -176,12 +152,8 @@ struct Definition< ::beginner_tutorials::Num_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string first_name\n"
-"string last_name\n"
-"uint8 data_int8\n"
-"uint32 data_int32\n"
-"uint16 data_int16\n"
-"float32 data_float32\n"
+    return "int8 centerX\n"
+"int8 centerY\n"
 ;
   }
 
@@ -200,12 +172,8 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.first_name);
-      stream.next(m.last_name);
-      stream.next(m.data_int8);
-      stream.next(m.data_int32);
-      stream.next(m.data_int16);
-      stream.next(m.data_float32);
+      stream.next(m.centerX);
+      stream.next(m.centerY);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -224,18 +192,10 @@ struct Printer< ::beginner_tutorials::Num_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::beginner_tutorials::Num_<ContainerAllocator>& v)
   {
-    s << indent << "first_name: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.first_name);
-    s << indent << "last_name: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.last_name);
-    s << indent << "data_int8: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.data_int8);
-    s << indent << "data_int32: ";
-    Printer<uint32_t>::stream(s, indent + "  ", v.data_int32);
-    s << indent << "data_int16: ";
-    Printer<uint16_t>::stream(s, indent + "  ", v.data_int16);
-    s << indent << "data_float32: ";
-    Printer<float>::stream(s, indent + "  ", v.data_float32);
+    s << indent << "centerX: ";
+    Printer<int8_t>::stream(s, indent + "  ", v.centerX);
+    s << indent << "centerY: ";
+    Printer<int8_t>::stream(s, indent + "  ", v.centerY);
   }
 };
 

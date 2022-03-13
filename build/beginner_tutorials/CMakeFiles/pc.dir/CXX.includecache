@@ -6,6 +6,38 @@
 
 #IncludeRegexTransform: 
 
+/home/raihanramadan/catkin_ws/devel/include/beginner_tutorials/DataPckeMotor.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/raihanramadan/catkin_ws/devel/include/beginner_tutorials/TitikTengahBola.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/raihanramadan/catkin_ws/src/beginner_tutorials/src/pc.cpp
 ros/ros.h
 /home/raihanramadan/catkin_ws/src/beginner_tutorials/src/ros/ros.h
@@ -15,6 +47,10 @@ std_msgs/Float32.h
 /home/raihanramadan/catkin_ws/src/beginner_tutorials/src/std_msgs/Float32.h
 iostream
 -
+beginner_tutorials/TitikTengahBola.h
+/home/raihanramadan/catkin_ws/src/beginner_tutorials/src/beginner_tutorials/TitikTengahBola.h
+beginner_tutorials/DataPckeMotor.h
+/home/raihanramadan/catkin_ws/src/beginner_tutorials/src/beginner_tutorials/DataPckeMotor.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
