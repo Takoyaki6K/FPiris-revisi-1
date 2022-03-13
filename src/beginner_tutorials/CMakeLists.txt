@@ -16,10 +16,16 @@ find_package(
     cv_bridge
     image_transport
     image_geometry
+    message_generation
+    message_runtime
     )
 # find_package(OpenCV REQUIRED)
 ## Declare ROS messages and services
-add_message_files(FILES Num.msg)
+add_message_files(FILES 
+TitikTengahBola.msg
+DataPckeMotor.msg
+)
+
 add_service_files(FILES AddTwoInts.srv)
 
 ## Generate added messages and services

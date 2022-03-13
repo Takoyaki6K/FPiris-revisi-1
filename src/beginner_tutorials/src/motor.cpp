@@ -1,21 +1,20 @@
 #include "ros/ros.h"
 #include "std_msgs/Int16.h"
-#include "std_msgs/Int16.h"
 #include <iostream>
+#include "beginner_tutorials/DataPckeMotor.h"
 
 using namespace std; 
+// data dimasukkan msg (sudah)
+// kasih dokumentasi (sudah)
+//algorithm sudutnya dibenerin (insyaallah sudah)
 
 // subscriber
-ros::Subscriber center_bola_x;
-ros::Subscriber center_bola_y;
-ros::Subscriber target_sudut;
-ros::Subscriber kecepatan_bola_x;
-ros::Subscriber kecepatan_bola_y;
-ros::Subscriber kecepatan_theta;
+ros::Subscriber sub_dataPc;
+
 
 class data_dari_pc{
     private:
-    int x, y, sudut, speedX, speedY, speedTheta, awalX = 0 , awalY = 0, awalTheta = 0;
+    int x, y, sudut, speedX, speedY, speedTheta, awalX = 1000 , awalY = 1000, awalTheta = 0 ;
 
     public:
 
@@ -28,33 +27,49 @@ class data_dari_pc{
 
     void takeAll(){
 
-        // int tempX ,tempY ;
-        ros::Rate loop_rate(1);
+        ros::Rate loop_rate(10);
         while(ros::ok()){
-        // ROS_INFO ("posisi sekarang berada di x = %d ; y= %d ", awalX, awalY);
         printf("==========================================\n");
         printf("posisi X = %d \n", awalX);
         printf("posisi Y = %d \n", awalY);
         printf("Sudut    = %d \n", awalTheta);
         printf("==========================================\n");
 
-        awalX += speedX;
-        awalY += speedY;
-        awalTheta += speedTheta;
-        if(awalTheta > 180){
-            awalTheta = -179;
-        }else if(awalTheta < -180){
-            awalTheta = 179;
+        // mengkondisikan kapan x y bertambah dan berkurang
+        if (awalX > x){ 
+            awalX = awalX - speedX;
+
+        }else {
+            awalX = awalX + speedX;
         }
-        if (awalX > x){    
+        if (awalY > y){ 
+            awalY = awalY -  speedY;
+
+        }else {
+            awalY = awalY + speedY;
+        }
+
+        // jika x atau y sudah berada pada range tertentu maka dapat disimpulkan sampai tujuan
+        if (awalX < x+10 && awalX > x-10 ){    //diberi range dengan toleransi jika awalX berada di range x + 10 dan x-10 
             awalX = x;
         }
-        if (awalY > y){
+        if (awalY < y+10 && awalY > y-10 ){     //diberi range dengan toleransi 
             awalY = y;
         }
-        // if (awalX == x && awalY == y && x != 0 && y != 0){
-        //     ros::shutdown();
-        // }
+
+        // logika sudut
+        if (awalTheta < sudut+5 && awalTheta > sudut-5) { // diberi range dan toleransi 
+            awalTheta = sudut;
+        }else{
+            awalTheta += speedTheta;
+
+            if (awalTheta > 179){ // awaltheta melebihi 179 akan dikurangi 360
+            awalTheta = awalTheta - 360;
+            }
+            if (awalTheta < -179){ // awaltheta kurang dari -179 akan ditambah 360
+            awalTheta = awalTheta + 360;
+            }
+        }
 
         ros::spinOnce();
         loop_rate.sleep();
@@ -67,65 +82,19 @@ class data_dari_pc{
 };
 
 data_dari_pc data;
-void tengah_x(const std_msgs::Int16::ConstPtr& titikX){
-    // cout << titikX->data << endl;
-    data.setX(titikX->data);
-    // data.takeAll();
-    // ROS_INFO("data %f ",titikX->data);
+void ambilData(const beginner_tutorials::DataPckeMotor::ConstPtr& dataPc){
+    data.setX(dataPc->titikX);
+    data.setY(dataPc->titikY);
+    data.setsudut(dataPc->target_sudut);
+    data.setspeedX(dataPc->kecepatan_x);
+    data.setspeedY(dataPc->kecepatan_y);
+    data.setspeedTheta(dataPc->kecepatan_theta);
 }
-void tengah_y(const std_msgs::Int16::ConstPtr& titikY){
-    // cout << titikY->data << endl;
-    data.setY(titikY->data);
-    // data.takeAll();
-
-    // ROS_INFO("data %f ",titikY->data);
-    
-
-}
-void targetSudut(const std_msgs::Int16::ConstPtr& target){
-    // cout << target->data << endl;
-    // ROS_INFO("data %f ",target->data);
-    data.setsudut(target->data);
-    // data.takeAll();
-
-
-}
-void kecepatan_x(const std_msgs::Int16::ConstPtr& kecepatanX){
-    // cout << kecepatanX->data << endl;
-    // ROS_INFO("data %f ",kecepatanX->data);
-    data.setspeedX(kecepatanX->data);
-    // data.takeAll();
-
-}
-void kecepatan_y(const std_msgs::Int16::ConstPtr& kecepatanY){
-    // cout << kecepatanY->data << endl;
-    // ROS_INFO("data %f ",kecepatanY->data);
-    data.setspeedY(kecepatanY->data);
-    // data.takeAll();
-
-
-}
-void theta(const std_msgs::Int16::ConstPtr& kecepatanTheta){
-    // cout << kecepatanTheta->data << endl;
-    // ROS_INFO("data %f ",kecepatanTheta->data);
-    data.setspeedTheta(kecepatanTheta->data);
-    
-
-
-}
-
 int main(int argc, char **argv){
     ros::init(argc, argv, "motor");
     ros:: NodeHandle n;
 
-    center_bola_x = n.subscribe("center_bola_x", 1000, tengah_x);
-    center_bola_y = n.subscribe("center_bola_y", 1000, tengah_y);
-    target_sudut = n.subscribe("target_sudut", 1000, targetSudut);
-    kecepatan_bola_x = n.subscribe("kecepatan_bola_x", 1000, kecepatan_x);
-    kecepatan_bola_y = n.subscribe("kecepatan_bola_y", 1000, kecepatan_y);
-    kecepatan_theta = n.subscribe("kecepatan_theta", 1000, theta);
-
-
+    sub_dataPc = n.subscribe("Kirim_ke_motor", 1000, ambilData);
     data.takeAll();
 
 
